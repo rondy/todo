@@ -1,19 +1,5 @@
 <%= form_for @todo_list do |f| %>
-  <% if @todo_list.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= @todo_list.errors.count %> error(s) prohibited this
-        <%= @todo_list.class.model_name.human %> from being saved:
-      </h2>
-
-      <ul>
-      <% @todo_list.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+  <%= error_messages_for @todo_list %>
   <%= f.label :name %>
   <%= f.text_field :name %>
   <%= f.submit %>
