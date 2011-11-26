@@ -13,6 +13,12 @@ end
 group :test, :development do
   gem "rspec-rails"
   gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem "spork"
+end
+
+group :development do
+  gem "wirble"
+  gem "hirb"
 end
 
 group :test do
