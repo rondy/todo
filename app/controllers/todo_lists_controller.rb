@@ -9,8 +9,12 @@ class TodoListsController < ApplicationController
   end
 
   def create
-    @todo_list = TodoList.create!(params[:todo_list])
-    redirect_to todo_lists_url, :notice => "Todo list created"
+    @todo_list = TodoList.new(params[:todo_list])
+    if @todo_list.save
+      redirect_to todo_lists_url, :notice => "Todo list created"
+    else
+      render "new"
+    end
   end
 
 end
