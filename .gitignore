@@ -13,3 +13,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+.rvmrc
+.DS_Store
+db/schema.rb
