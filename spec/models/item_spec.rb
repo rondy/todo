@@ -1,3 +1,3 @@
 require 'spec_helper'
 
-describe TodoList
+describe Item

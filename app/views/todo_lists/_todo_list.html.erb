@@ -1,3 +1,12 @@
 <div class="todo_list">
   <%= todo_list.name %>
+  <% unless todo_list.items.empty? %>
+    <ul class="todo_list_items">
+      <% todo_list.items.each do |item| %>
+        <li><%= item.name %></li>
+      <% end %>
+    </ul>
+  <% end %>
 </div>
+
+<hr/>

@@ -6,6 +6,7 @@ class TodoListsController < ApplicationController
 
   def new
     @todo_list = TodoList.new
+    4.times { @todo_list.items.build }
   end
 
   def create
