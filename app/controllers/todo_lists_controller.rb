@@ -6,7 +6,7 @@ class TodoListsController < ApplicationController
 
   def new
     @todo_list = TodoList.new
-    @todo_list.items.build
+    @todo_list.build_empty_items
   end
 
   def create
@@ -14,6 +14,7 @@ class TodoListsController < ApplicationController
     if @todo_list.save
       redirect_to todo_lists_url, :notice => "Todo list created"
     else
+      @todo_list.build_empty_items
       render "new"
     end
   end

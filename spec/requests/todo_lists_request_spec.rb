@@ -2,10 +2,21 @@ require 'spec_helper'
 
 feature "Todo lists" do
 
+  scenario "populate 4 empty text fields for items, while user doesn't fill at least one" do
+    visit new_todo_list_path
+    all("#todo_list_items > .todo_list_item input[type=text]").should have(4).items
+    fill_in "Name", :with => ""
+    click_button "Create Todo list"
+    all("#todo_list_items > .todo_list_item input[type=text]").should have(4).items
+    fill_in(find("div#todo_list_items > div.todo_list_item:nth-child(1) input")[:id], :with => "Can't find a good name to my todo list")
+    click_button "Create Todo list"
+    all("#todo_list_items > .todo_list_item input[type=text]").should have(1).items
+  end
+
   scenario "can create a todo list with valid attributes" do
     visit new_todo_list_path
     fill_in "Name", :with => "Christmas wish list"
-    within("#todo_list_items") { fill_in "todo_list_items_attributes_0_name", :with => "Kindle" }
+    fill_in(find("div#todo_list_items > div.todo_list_item:nth-child(1) input")[:id], :with => "Kindle")
     click_button "Create Todo list"
     current_path.should eq todo_lists_path
     within("#flash_message") { page.should have_content "Todo list created" }
@@ -16,16 +27,23 @@ feature "Todo lists" do
   scenario "can create a todo list adding items dinamically", :js => true do
     visit new_todo_list_path
     fill_in "Name", :with => "Things to learn"
-    click_link "Add item"
-    all("#todo_list_items > .todo_list_item").should have(2).items
+    all("#todo_list_items > .todo_list_item").should have(4).items
     fill_in(find("div#todo_list_items > div.todo_list_item:nth-child(1) input")[:id], :with => "Node.js")
-    fill_in(find("div#todo_list_items > div.todo_list_item:nth-child(2) input")[:id], :with => "NoSQL")
+    fill_in(find("div#todo_list_items > div.todo_list_item:nth-child(2) input")[:id], :with => "EventMachine")
+    fill_in(find("div#todo_list_items > div.todo_list_item:nth-child(3) input")[:id], :with => "SVG")
+    fill_in(find("div#todo_list_items > div.todo_list_item:nth-child(4) input")[:id], :with => "NoSQL")
+    click_link "Add item"
+    all("#todo_list_items > .todo_list_item").should have(5).items
+    fill_in(find("div#todo_list_items > div.todo_list_item:nth-child(5) input")[:id], :with => "Titanium Mobile")
     click_button "Create Todo list"
     current_path.should eq todo_lists_path
     within("#flash_message") { page.should have_content "Todo list created" }
     within("div#todo_lists") { page.should have_content "Things to learn" }
     within("ul.todo_list_items") { page.should have_content "Node.js" }
+    within("ul.todo_list_items") { page.should have_content "EventMachine" }
+    within("ul.todo_list_items") { page.should have_content "SVG" }
     within("ul.todo_list_items") { page.should have_content "NoSQL" }
+    within("ul.todo_list_items") { page.should have_content "Titanium Mobile" }
   end
 
   scenario "cannot create a todo list without name" do
@@ -40,12 +58,12 @@ feature "Todo lists" do
     todo_list.items.create([{ :name => "Backbone" }, { :name => "SproutCore" }])
     visit edit_todo_list_path(todo_list)
     all("div#todo_list_items > div.todo_list_item").should have(2).items
-    fill_in "Name", :with => "Things I HAVE to learn"
+    fill_in "Name", :with => "Things I MUST to learn"
     fill_in(find("div#todo_list_items > div.todo_list_item:nth-child(1) input")[:id], :with => "Backbone.js")
     click_button "Update Todo list"
     current_path.should eq todo_lists_path
     within("#flash_message") { page.should have_content "Todo list updated" }
-    within("div#todo_lists") { page.should have_content "Things I HAVE to learn" }
+    within("div#todo_lists") { page.should have_content "Things I MUST to learn" }
     within("ul.todo_list_items") { page.should have_content "Backbone.js" }
     within("ul.todo_list_items") { page.should have_content "SproutCore" }
   end
