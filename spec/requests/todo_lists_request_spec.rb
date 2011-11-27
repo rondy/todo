@@ -2,6 +2,8 @@ require 'spec_helper'
 
 feature "Todo lists" do
 
+  before { login! }
+
   scenario "populate 4 empty text fields for items, while user doesn't fill at least one" do
     visit new_todo_list_path
     all("#todo_list_items > .todo_list_item input[type=text]").should have(4).items
