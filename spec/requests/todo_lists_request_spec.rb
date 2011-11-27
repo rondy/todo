@@ -56,7 +56,7 @@ feature "Todo lists" do
   end
 
   scenario "can update a todo list", :js => true do
-    todo_list = Factory(:todo_list, :name => "Things to learn")
+    todo_list = current_user.todo_lists.create(:name => "Things to learn")
     todo_list.items.create([{ :name => "Backbone" }, { :name => "SproutCore" }])
     visit edit_todo_list_path(todo_list)
     all("div#todo_list_items > div.todo_list_item").should have(2).items
@@ -71,7 +71,7 @@ feature "Todo lists" do
   end
 
   scenario "can remove items from a todo list", :js => true do
-    todo_list = Factory(:todo_list, :name => "Awesome list")
+    todo_list = current_user.todo_lists.create(:name => "Awesome list")
     todo_list.items.create([{ :name => "Cool item" }, { :name => "Not so cool" }])
     visit edit_todo_list_path(todo_list)
     find("div#todo_list_items > div.todo_list_item:nth-child(2) a.remove_child").click
