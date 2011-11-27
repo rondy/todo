@@ -6,16 +6,16 @@
     <%= f.text_field :name %>
   </div>
 
-  <div id="todo_list_items">
-    <h3>Items</h3>
+  <div id="tasks">
+    <h3>Tasks</h3>
 
-    <%= f.fields_for :items, @todo_list.items do |items_form| %>
-      <%= render :partial => "item", :locals => { :f => items_form } %>
+    <%= f.fields_for :tasks, @todo_list.tasks do |tasks_form| %>
+      <%= render :partial => "task", :locals => { :f => tasks_form } %>
     <% end %>
 
     <div>
-      <%= add_child_link "Add item", :items %>
-      <%= new_child_fields_template(f, :items)%>
+      <%= add_child_link "Add task", :tasks %>
+      <%= new_child_fields_template(f, :tasks)%>
     </div>
   </div>
 
