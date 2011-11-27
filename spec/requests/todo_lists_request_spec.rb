@@ -4,6 +4,14 @@ feature "Todo lists" do
 
   before { login! }
 
+  scenario "can view only todo lists created by logged in user" do
+    todo_list_1 = Factory.create(:todo_list, :name => "Logged in user todo list", :user => current_user)
+    todo_list_2 = Factory.create(:todo_list, :name => "Anonymous todo list")
+    visit todo_lists_path
+    page.should     have_content todo_list_1.name
+    page.should_not have_content todo_list_2.name
+  end
+
   scenario "populate 4 empty text fields for items, while user doesn't fill at least one" do
     visit new_todo_list_path
     all("#todo_list_items > .todo_list_item input[type=text]").should have(4).items
