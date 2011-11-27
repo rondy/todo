@@ -18,4 +18,17 @@ class TodoListsController < ApplicationController
     end
   end
 
+  def edit
+    @todo_list = TodoList.find(params[:id])
+  end
+
+  def update
+    @todo_list = TodoList.find(params[:id])
+    if @todo_list.update_attributes(params[:todo_list])
+      redirect_to todo_lists_url, :notice => "Todo list updated"
+    else
+      render "edit"
+    end
+  end
+
 end

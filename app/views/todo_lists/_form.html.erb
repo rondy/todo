@@ -1,0 +1,23 @@
+<%= form_for @todo_list do |f| %>
+  <%= error_messages_for @todo_list %>
+
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div id="todo_list_items">
+    <h3>Items</h3>
+
+    <%= f.fields_for :items, @todo_list.items do |items_form| %>
+      <%= render :partial => "item", :locals => { :f => items_form } %>
+    <% end %>
+
+    <div>
+      <%= add_child_link "Add item", :items %>
+      <%= new_child_fields_template(f, :items)%>
+    </div>
+  </div>
+
+  <%= f.submit %>
+<% end %>
