@@ -28,4 +28,5 @@ group :test do
   gem "capybara"
   gem "guard-rspec"
   gem "database_cleaner"
+  gem "launchy"
 end
