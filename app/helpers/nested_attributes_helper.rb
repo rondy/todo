@@ -1,5 +1,9 @@
 module NestedAttributesHelper
 
+  def remove_child_link(name, f)
+    f.hidden_field(:_destroy) + link_to(name, "javascript:void(0)", :class => "remove_child")
+  end
+
   def add_child_link(name, association)
     link_to name, "javascript:void(0)", :class => "add_child", :"data-association" => association
   end
