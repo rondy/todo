@@ -11,4 +11,9 @@ FactoryGirl.define do
     password_confirmation "password"
   end
 
+  factory :watching do
+    association :watcher, :factory => :user
+    association :watched_list, :factory => :todo_list
+  end
+
 end
