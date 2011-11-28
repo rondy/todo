@@ -1,5 +1,5 @@
 <div class="todo_list">
-  <%= todo_list.name %>
+  <div><%= todo_list.name %> <%= visibility(todo_list) %></div>
   <% unless todo_list.tasks.empty? %>
     <ul class="tasks">
       <% todo_list.tasks.each do |task| %>

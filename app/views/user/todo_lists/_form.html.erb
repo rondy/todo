@@ -1,9 +1,14 @@
 <%= form_for [:user, @todo_list] do |f| %>
   <%= error_messages_for @todo_list %>
 
-  <div>
+  <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.check_box :private %>
+    <%= f.label :private %>
   </div>
 
   <div id="tasks">
