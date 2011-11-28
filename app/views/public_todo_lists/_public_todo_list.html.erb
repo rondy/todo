@@ -1,5 +1,8 @@
 <div class="todo_list">
-  <%= public_todo_list.name %>
+  <div>
+    <%= public_todo_list.name %> <%= link_to_watch(public_todo_list) %>
+  </div>
+
   <% unless public_todo_list.tasks.empty? %>
     <ul class="tasks">
       <% public_todo_list.tasks.each do |task| %>
