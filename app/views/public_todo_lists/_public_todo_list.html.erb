@@ -1,0 +1,12 @@
+<div class="todo_list">
+  <%= public_todo_list.name %>
+  <% unless public_todo_list.tasks.empty? %>
+    <ul class="tasks">
+      <% public_todo_list.tasks.each do |task| %>
+        <li><%= task.name %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<hr/>
