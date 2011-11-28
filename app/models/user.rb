@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  include Watchable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 

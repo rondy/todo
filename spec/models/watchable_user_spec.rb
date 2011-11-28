@@ -1,12 +1,10 @@
 require "spec_helper"
 
-describe Watchable do
+describe "Watchable user" do
 
   let(:user) { Factory(:user) }
 
-  before do
-    user.extend Watchable
-  end
+  it { user.should be_kind_of Watchable }
 
   describe "watch a todo list" do
 
