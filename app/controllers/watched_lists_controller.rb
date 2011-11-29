@@ -1,5 +1,9 @@
 class WatchedListsController < ApplicationController
 
+  def index
+    @watched_lists = current_user.watched_lists
+  end
+
   def create
     @todo_list = TodoList.public_visibility.find(params[:todo_list_id])
 

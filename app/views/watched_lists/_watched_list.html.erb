@@ -1,0 +1,15 @@
+<div class="todo_list">
+  <div>
+    <%= watched_list.name %> <%= toggle_watching watched_list %>
+  </div>
+
+  <% unless watched_list.tasks.empty? %>
+    <ul class="tasks">
+      <% watched_list.tasks.each do |task| %>
+        <li><%= task.name %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<hr/>
