@@ -11,7 +11,7 @@ module WatchedListsHelper
   end
 
   def link_to_unwatch(todo_list)
-    link_to "Unwatch", watched_lists_path(:todo_list_id => todo_list), :method => :delete
+    link_to "Unwatch", watched_list_path(todo_list), :method => :delete
   end
 
   def link_to_watch(todo_list)

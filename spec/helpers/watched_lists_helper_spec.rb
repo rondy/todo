@@ -12,7 +12,7 @@ describe WatchedListsHelper do
   end
 
   it "renders link to watch a todo list" do
-    helper.link_to_watch(todo_list).should eq %{<a href="/watched_lists?todo_list_id=#{todo_list.to_param}" data-method="post" rel="nofollow">Watch</a>}
+    helper.link_to_watch(todo_list).should eq %{<a href="/watched_lists/#{todo_list.to_param}" data-method="post" rel="nofollow">Watch</a>}
   end
 
   describe "toggle watching links" do
