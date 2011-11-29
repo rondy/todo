@@ -6,4 +6,5 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require nested_attributes
 //= require_tree .
