@@ -15,7 +15,7 @@ end
 group :test, :development do
   gem "rspec-rails"
   gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
-  gem "spork"
+  gem "spork", "~> 0.9.0.rc"
 end
 
 group :development do
