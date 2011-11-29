@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe User::TodoListsHelper do
+describe TodoListsHelper do
 
   describe "#visibility(todo_list)" do
 

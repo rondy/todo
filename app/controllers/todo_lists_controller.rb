@@ -1,4 +1,4 @@
-class User::TodoListsController < ApplicationController
+class TodoListsController < ApplicationController
 
   before_filter :authenticate_user!
 
@@ -14,7 +14,7 @@ class User::TodoListsController < ApplicationController
   def create
     @todo_list = current_user.todo_lists.build(params[:todo_list])
     if @todo_list.save
-      redirect_to user_todo_lists_url, :notice => "Todo list created"
+      redirect_to todo_lists_url, :notice => "Todo list created"
     else
       @todo_list.build_empty_tasks
       render "new"
@@ -28,7 +28,7 @@ class User::TodoListsController < ApplicationController
   def update
     @todo_list = current_user.todo_lists.find(params[:id])
     if @todo_list.update_attributes(params[:todo_list])
-      redirect_to user_todo_lists_url, :notice => "Todo list updated"
+      redirect_to todo_lists_url, :notice => "Todo list updated"
     else
       render "edit"
     end

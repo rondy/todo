@@ -1,4 +1,4 @@
-class User::WatchedListsController < ApplicationController
+class WatchedListsController < ApplicationController
 
   def create
     @todo_list = TodoList.public_visibility.find_by_id(params[:todo_list_id])
