@@ -1,6 +1,6 @@
 <div class="todo_list">
   <div>
-    <%= public_todo_list.name %> <%= link_to_watch(public_todo_list) %>
+    <%= public_todo_list.name %> <%= toggle_watching public_todo_list %>
   </div>
 
   <% unless public_todo_list.tasks.empty? %>
