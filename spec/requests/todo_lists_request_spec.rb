@@ -60,7 +60,7 @@ feature "User todo lists" do
     visit new_todo_list_path
     fill_in "Name", :with => ""
     click_button "Create Todo list"
-    within("#error_explanation") { page.should have_content "Name can't be blank" }
+    within("span.error") { page.should have_content "can't be blank" }
   end
 
   scenario "can update a todo list", :js => true do

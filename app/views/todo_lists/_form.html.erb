@@ -1,15 +1,7 @@
-<%= form_for @todo_list do |f| %>
-  <%= error_messages_for @todo_list %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.check_box :private %>
-    <%= f.label :private %>
-  </div>
+<%= simple_form_for @todo_list, :html => { :novalidate => true } do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :name %>
+  <%= f.input :private %>
 
   <div id="tasks">
     <h3>Tasks</h3>
@@ -24,5 +16,5 @@
     </div>
   </div>
 
-  <%= f.submit %>
+  <%= f.button :submit %>
 <% end %>
