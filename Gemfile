@@ -6,6 +6,8 @@ gem 'sqlite3'
 gem 'jquery-rails'
 
 gem "devise"
+gem "carrierwave"
+gem "rmagick"
 
 group :assets do
   gem 'sass-rails', '~> 3.1.5.rc.2'

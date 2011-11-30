@@ -17,3 +17,4 @@
 .rvmrc
 .DS_Store
 db/schema.rb
+public/uploads/**/*
