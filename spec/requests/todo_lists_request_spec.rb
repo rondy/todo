@@ -12,7 +12,7 @@ feature "User todo lists" do
     page.should_not have_content todo_list_2.name
   end
 
-  scenario "populate 4 empty text fields for tasks, while user doesn't fill at least one" do
+  scenario "show 4 empty text fields for tasks while user doesn't fill at least one and submit" do
     visit new_todo_list_path
     all("div#tasks > div.task_field input[type=text]").should have(4).items
     fill_in "Name", :with => ""
