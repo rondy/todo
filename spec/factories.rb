@@ -5,6 +5,14 @@ FactoryGirl.define do
     association :user
   end
 
+  factory :public_todo_list, :parent => :todo_list do
+    private false
+  end
+
+  factory :private_todo_list, :parent => :todo_list do
+    private true
+  end
+
   factory :user do
     sequence(:email) { |n| "user_#{n}@gmail.com" }
     password "password"

@@ -8,11 +8,11 @@ describe WatchedListsHelper do
   before { helper.stub :current_user => user }
 
   it "renders link to unwatch a todo list" do
-    helper.link_to_unwatch(todo_list).should eq %{<a href="/watched_lists/#{todo_list.to_param}" data-method="delete" rel="nofollow">Unwatch</a>}
+    helper.link_to_unwatch(todo_list).should eq %{<a href="/watched_lists/#{todo_list.to_param}" data-method="delete" id="unwatch_todo_list_#{todo_list.id}" rel="nofollow">Unwatch</a>}
   end
 
   it "renders link to watch a todo list" do
-    helper.link_to_watch(todo_list).should eq %{<a href="/watched_lists?todo_list_id=#{todo_list.to_param}" data-method="post" rel="nofollow">Watch</a>}
+    helper.link_to_watch(todo_list).should eq %{<a href="/watched_lists?todo_list_id=#{todo_list.to_param}" data-method="post" id="watch_todo_list_#{todo_list.id}" rel="nofollow">Watch</a>}
   end
 
   describe "toggle watching links" do
