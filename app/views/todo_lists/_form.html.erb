@@ -6,7 +6,7 @@
   <div id="tasks">
     <h3>Tasks</h3>
 
-    <%= f.fields_for :tasks, @todo_list.tasks do |tasks_form| %>
+    <%= f.fields_for :tasks, setup_task_fields(@todo_list) do |tasks_form| %>
       <%= render :partial => "task", :locals => { :f => tasks_form } %>
     <% end %>
 

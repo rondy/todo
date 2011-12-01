@@ -10,8 +10,11 @@ class TodoList < ActiveRecord::Base
 
   scope :public_visibility, where(:private => false)
 
-  def build_empty_tasks(n=4)
-    n.times { tasks.build } if tasks.empty?
+  NUMBER_OF_TASK_FIELDS = 4
+
+  def tasks_with_empty_items
+    (NUMBER_OF_TASK_FIELDS - tasks.size).times { tasks.build }
+    tasks
   end
 
   def public?
