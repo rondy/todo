@@ -32,4 +32,10 @@ class TodoListsController < ApplicationController
     end
   end
 
+  def destroy
+    @todo_list = current_user.todo_lists.find(params[:id])
+    @todo_list.destroy
+    redirect_to todo_lists_url, :notice => "Todo list removed"
+  end
+
 end

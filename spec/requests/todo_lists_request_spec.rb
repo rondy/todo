@@ -89,4 +89,16 @@ feature "User todo lists" do
     within("ul.tasks") { page.should_not have_content "Not so cool" }
   end
 
+  scenario "can remove a todo list", :js => true do
+    todo_list           = current_user.todo_lists.create(:name => "Awesome list")
+    todo_list_to_remove = current_user.todo_lists.create(:name => "Not so cool")
+    visit todo_lists_path
+    page.evaluate_script('window.confirm = function() { return true; }')
+    find("a#remove_todo_list_#{todo_list_to_remove.id}").click
+    page.should have_selector("div#todo_list_#{todo_list.id}")
+    page.should have_content(todo_list.name)
+    page.should_not have_selector("div#todo_list_#{todo_list_to_remove.id}")
+    page.should_not have_content(todo_list_to_remove.name)
+  end
+
 end
