@@ -10,13 +10,13 @@ module ApplicationHelper
     end.join.html_safe
   end
 
-  def html_title
-    page_title = content_for(:title) if content_for?(:title)
-    [page_title, APP_NAME].compact.join(" &laquo; ").html_safe
+  def title_tag
+    title = content_for(:title) if content_for?(:title)
+    content_tag :title, [title, AppConfig.name].compact.join(" &laquo; ").html_safe
   end
 
-  def title(page_title, opts={})
-    content_for(:title) { page_title }
+  def title(t, opts={})
+    content_for(:title) { t }
   end
 
 end

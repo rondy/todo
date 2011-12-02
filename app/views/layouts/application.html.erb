@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title><%= html_title %></title>
+  <%= title_tag %>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -13,7 +13,7 @@
   <div id="container">
 
     <div id="header" class="clearfix">
-      <div id="app_name"><%= APP_NAME %></div>
+      <div id="app_name"><%= AppConfig.name %></div>
       <%= render :partial => "shared/user_nav" %>
     </div>
 
@@ -35,7 +35,7 @@
       <%= yield %>
     </div>
 
-    <div id="footer"><%= APP_NAME %> &copy; 2011</div>
+    <div id="footer"><%= AppConfig.name %> &copy; 2011</div>
   </div>
 
 </body>
