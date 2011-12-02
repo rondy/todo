@@ -1,5 +1,10 @@
 <div id="<%= dom_id(todo_list) %>" class="todo_list">
-  <div><%= todo_list.name %> <%= visibility(todo_list) %> <%= link_to "(Remove)", todo_list_path(todo_list), :method => :delete, :confirm => "Are you sure?", :id => "remove_todo_list_#{todo_list.id}" %></div>
+  <h3>
+    <%= todo_list.name %>
+    <%= visibility(todo_list) %>
+    <%= link_to "(Edit)", edit_todo_list_path(todo_list), :id => "edit_todo_list_#{todo_list.id}" %>
+    <%= link_to "(Remove)", todo_list_path(todo_list), :method => :delete, :confirm => "Are you sure?", :id => "remove_todo_list_#{todo_list.id}" %>
+    </h3>
   <% unless todo_list.tasks.empty? %>
     <ul class="tasks">
       <% todo_list.tasks.each do |task| %>

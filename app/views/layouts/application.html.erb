@@ -8,21 +8,24 @@
 </head>
 
 <body>
-  <div id="user_nav">
-    <% if user_signed_in? %>
-      Signed in as <%= image_tag current_user.avatar_url %> <%= link_to current_user.email, edit_user_registration_path %>. Not you?
-      <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path %> or
-      <%= link_to "Sign in", new_user_session_path %>
-    <% end %>
+
+  <div id="container">
+    <div id="user_nav">
+      <% if user_signed_in? %>
+        Signed in as <%= image_tag current_user.avatar.thumb.url %> <%= link_to current_user.email, edit_user_registration_path %>. Not you?
+        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+      <% else %>
+        <%= link_to "Sign up", new_user_registration_path %> or
+        <%= link_to "Sign in", new_user_session_path %>
+      <% end %>
+    </div>
+
+    <% flash.collect do |key, message| %>
+      <%= content_tag :div, message, :id => "flash_#{key}", :class => "flash_message" %>
+    <% end.join.html_safe %>
+
+    <%= yield %>
   </div>
-
-  <% flash.collect do |key, message| %>
-    <%= content_tag :div, message, :id => "flash_message", :class => key %>
-  <% end.join.html_safe %>
-
-  <%= yield %>
 
 </body>
 
