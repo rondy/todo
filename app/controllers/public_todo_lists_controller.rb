@@ -1,4 +1,4 @@
-class PublicTodoListsController < ApplicationController
+class PublicTodoListsController < TodoListsController
 
   def index
     @public_todo_lists = TodoList.public_visibility

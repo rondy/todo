@@ -13,8 +13,7 @@
         <h3><%= todo_list.name %></h3>
         <div class="actions">
           <span class="timestamp"><%= time_ago_in_words(todo_list.created_at) %></span>
-          <%= link_to "(Edit)", edit_todo_list_path(todo_list), :id => "edit_todo_list_#{todo_list.id}", :class => "edit",  %> | 
-          <%= link_to "(Remove)", todo_list_path(todo_list), :method => :delete, :confirm => "Are you sure?", :id => "remove_todo_list_#{todo_list.id}", :class => "destroy" %>
+          <%= render_action_links_for(todo_list) %>
         </div>
       </div>
     </div>

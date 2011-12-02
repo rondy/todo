@@ -18,10 +18,11 @@ div.todo_list {
 
       a {
         background-repeat: no-repeat;
-        padding-left: 1.4em;
+        padding-left: 1.6em;
 
-        &.edit    { background-image: url('pencil.png'); }
-        &.destroy { background-image: url('trash.gif'); }
+        &.edit      { background-image: url("pencil.png"); }
+        &.destroy   { background-image: url("trash.gif"); }
+        &.watching  { background-image: url("watching.png"); }
       }
     }
   }

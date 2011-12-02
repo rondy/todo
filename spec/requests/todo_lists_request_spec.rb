@@ -29,7 +29,7 @@ feature "User todo lists" do
     fill_in(find("div#tasks > div.task_field:nth-child(1) input")[:id], :with => "Kindle")
     click_button "Create Todo list"
     current_path.should eq todo_lists_path
-    within("#flash_message")  { page.should have_content "Todo list was successfully created." }
+    within(".flash_message")  { page.should have_content "Todo list was successfully created." }
     within("div#todo_lists")  { page.should have_content "Christmas wish list" }
     within("ul.tasks")        { page.should have_content "Kindle" }
   end
@@ -47,7 +47,7 @@ feature "User todo lists" do
     fill_in(find("div#tasks > div.task_field:nth-child(5) input")[:id], :with => "Titanium Mobile")
     click_button "Create Todo list"
     current_path.should eq todo_lists_path
-    within("#flash_message") { page.should have_content "Todo list was successfully created." }
+    within(".flash_message") { page.should have_content "Todo list was successfully created." }
     within("div#todo_lists") { page.should have_content "Things to learn" }
     within("ul.tasks") { page.should have_content "Node.js" }
     within("ul.tasks") { page.should have_content "EventMachine" }
@@ -72,7 +72,7 @@ feature "User todo lists" do
     fill_in(find("div#tasks > div.task_field:nth-child(1) input")[:id], :with => "Backbone.js")
     click_button "Update Todo list"
     current_path.should eq todo_lists_path
-    within("#flash_message") { page.should have_content "Todo list was successfully updated." }
+    within(".flash_message") { page.should have_content "Todo list was successfully updated." }
     within("div#todo_lists") { page.should have_content "Things I MUST to learn" }
     within("ul.tasks") { page.should have_content "Backbone.js" }
     within("ul.tasks") { page.should have_content "SproutCore" }

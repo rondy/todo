@@ -16,7 +16,7 @@ feature "Watched todo lists" do
     public_todo_list = Factory.create(:public_todo_list, :name => "The coolest list someone ever made")
     visit public_todo_lists_path
     find("a#watch_todo_list_#{public_todo_list.id}").click
-    find("#flash_message").should have_content %{You are watching "%s"} % public_todo_list.name
+    find(".flash_message").should have_content %{You are watching "%s"} % public_todo_list.name
   end
 
   scenario "can unwatch a watched todo list" do
@@ -24,7 +24,7 @@ feature "Watched todo lists" do
     current_user.watch! watched_todo_list
     visit watched_lists_path
     find("a#unwatch_todo_list_#{watched_todo_list.id}").click
-    find("#flash_message").should have_content %{You are no longer watching "%s"} % watched_todo_list.name
+    find(".flash_message").should have_content %{You are no longer watching "%s"} % watched_todo_list.name
   end
 
 end

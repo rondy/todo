@@ -1,4 +1,4 @@
-class WatchedListsController < ApplicationController
+class WatchedListsController < PublicTodoListsController
 
   def index
     @watched_lists = current_user.watched_lists

@@ -7,7 +7,11 @@ module Watchable
   end
 
   def can_watch?(todo_list)
-    todo_list.public? && !todo_lists.include?(todo_list)
+    todo_list.public? && !owns?(todo_list)
+  end
+
+  def owns?(todo_list)
+    self.id == todo_list.user_id
   end
 
   def unwatch!(todo_list)
