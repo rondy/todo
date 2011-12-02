@@ -12,7 +12,7 @@ module ApplicationHelper
 
   def html_title
     page_title = content_for(:title) if content_for?(:title)
-    [page_title, "Todo APP"].compact.join(" &laquo; ").html_safe
+    [page_title, APP_NAME].compact.join(" &laquo; ").html_safe
   end
 
   def title(page_title, opts={})
