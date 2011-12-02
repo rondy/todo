@@ -4,38 +4,34 @@ class TodoListsController < ApplicationController
 
   def index
     @todo_lists = current_user.todo_lists.all
+    respond_with(@todo_lists)
   end
 
   def new
     @todo_list = current_user.todo_lists.build
+    respond_with(@todo_lists)
   end
 
   def create
-    @todo_list = current_user.todo_lists.build(params[:todo_list])
-    if @todo_list.save
-      redirect_to todo_lists_url, :notice => "Todo list created"
-    else
-      render "new"
-    end
+    @todo_list = current_user.todo_lists.create(params[:todo_list])
+    respond_with(@todo_list)
   end
 
   def edit
     @todo_list = current_user.todo_lists.find(params[:id])
+    respond_with(@todo_list)
   end
 
   def update
     @todo_list = current_user.todo_lists.find(params[:id])
-    if @todo_list.update_attributes(params[:todo_list])
-      redirect_to todo_lists_url, :notice => "Todo list updated"
-    else
-      render "edit"
-    end
+    @todo_list.update_attributes(params[:todo_list])
+    respond_with(@todo_list)
   end
 
   def destroy
     @todo_list = current_user.todo_lists.find(params[:id])
     @todo_list.destroy
-    redirect_to todo_lists_url, :notice => "Todo list removed"
+    respond_with(@todo_list)
   end
 
 end

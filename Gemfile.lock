@@ -110,6 +110,7 @@ GEM
     rb-fsevent (0.4.3.1)
     rdoc (3.11)
       json (~> 1.4)
+    responders (0.6.4)
     rmagick (2.13.1)
     rspec (2.7.0)
       rspec-core (~> 2.7.0)
@@ -175,6 +176,7 @@ DEPENDENCIES
   launchy
   rails (= 3.1.2.rc2)
   rb-fsevent
+  responders
   rmagick
   rspec-rails
   sass-rails (~> 3.1.5.rc.2)

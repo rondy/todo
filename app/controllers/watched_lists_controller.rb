@@ -2,6 +2,7 @@ class WatchedListsController < ApplicationController
 
   def index
     @watched_lists = current_user.watched_lists
+    respond_with(@watched_lists)
   end
 
   def create
