@@ -11,9 +11,31 @@
 <body>
 
   <div id="container">
-    <%= render :partial => "shared/user_nav" %>
+
+    <div id="header" class="clearfix">
+      <div id="app_name">Todo APP</div>
+      <%= render :partial => "shared/user_nav" %>
+    </div>
+
+    <div id="menu" class="clearfix">
+      <ul>
+        <li><%= link_to "My lists", todo_lists_path %></li>
+        <li><%= link_to "Watched", watched_lists_path %></li>
+        <li><%= link_to "Public", public_todo_lists_path %></li>
+      </ul>
+
+      <div id="new_todo_list">
+        <%= link_to "New todo list", new_todo_list_path %>
+      </div>
+    </div>
+
     <%= flash_messages %>
-    <%= yield %>
+
+    <div id="content">
+      <%= yield %>
+    </div>
+
+    <div id="footer">Todo APP &copy; 2011</div>
   </div>
 
 </body>

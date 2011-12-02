@@ -17,34 +17,14 @@ h1,h2,h3,h4 {
   color: black;
 }
 
-.flash_message
-{
-  border: 1px solid;
-  padding: .8em;
-  // padding-left: 2.6em;
-  margin-bottom: 1.5em;
+h1 {
+  color: black;
+  font-size: 2.4em;
+  font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
+  line-height: 1.4em;
+  letter-spacing: -.05em;
 }
 
-#flash_notice
-{
-  border-color: #9c9;
-  // background: #e2f9e3 url(/images/tick.png) no-repeat 5px center;
-  background: #e2f9e3;
-  color: #060;
-}
-
-#flash_error
-{
-  border-color:#c68484;
-  // background: #fcc url(/images/cross.png) no-repeat 5px center;
-  background: #fcc;
-  color: #c00;
-}
-
-#flash_alert
-{
-  border-color:#82c2d4;
-  // background: #ebf5f8 url(/images/information.png) no-repeat 5px center;
-  background: #ebf5f8;
-  color: #000;
+.clearfix {
+  overflow: hidden;
 }
