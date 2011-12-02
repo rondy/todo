@@ -1,17 +1,36 @@
 div.todo_list {
 
   margin-bottom: 1em;
+  padding: 0 2.5em 2.5em;
+  border-bottom: 1px solid #DDD;
+
+  div.avatar {
+    float:left;
+    width:2.6em;
+  }
+
+  div.info {
+    float:left;
+
+    div.actions {
+      font-size:.6em;
+      line-height: 1.2em;
+
+      a {
+        background-repeat: no-repeat;
+        padding-left: 1.4em;
+
+        &.edit    { background-image: url('pencil.png'); }
+        &.destroy { background-image: url('trash.gif'); }
+      }
+    }
+  }
 
   h3 {
-
     color: #444;
     font-size: 1.2em;
     letter-spacing: -.075em;
-
-    a {
-      font-size: .6em;
-    }
-    
+    line-height: 1.3em;
   }
 
   ul.tasks {
