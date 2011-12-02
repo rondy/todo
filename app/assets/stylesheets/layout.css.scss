@@ -22,16 +22,14 @@ div#header {
 
 div#menu {
 
-  border: 1px solid #AAA;
+  background-color: #DDD;
   border-width: 1px 0;
-
 
   ul li {
     display: left;
     float: left;
 
     a {
-      background-color: #DDD;
       color: #999;
       display: block;
       font-size: .9em;
@@ -42,13 +40,20 @@ div#menu {
     }
   }
 
+  ul li.current {
+
+    a {
+      color: #000;
+    }
+
+  }
+
   div#new_todo_list {
     float: right;
 
     a {
       display:block;
       font-size: .75em;
-      border: 1px solid #AAA;
       margin: .6em .6em 0 0;
       padding: .15em .65em;
     }
@@ -62,6 +67,8 @@ div#content {
 }
 
 div#footer {
+  color: #AAA;
   text-align: center;
   font-size: .65em;
+  margin-top:1em;
 }

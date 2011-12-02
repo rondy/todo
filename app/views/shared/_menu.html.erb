@@ -1,0 +1,11 @@
+<div id="menu" class="clearfix">
+  <ul>
+    <%= link_to_menu "My lists", todo_lists_path %>
+    <%= link_to_menu "Watched", watched_lists_path %>
+    <%= link_to_menu "Public", public_todo_lists_path %>
+  </ul>
+
+  <div id="new_todo_list">
+    <%= link_to "New todo list", new_todo_list_path %>
+  </div>
+</div>

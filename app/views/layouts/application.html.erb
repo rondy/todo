@@ -17,17 +17,7 @@
       <%= render :partial => "shared/user_nav" %>
     </div>
 
-    <div id="menu" class="clearfix">
-      <ul>
-        <li><%= link_to "My lists", todo_lists_path %></li>
-        <li><%= link_to "Watched", watched_lists_path %></li>
-        <li><%= link_to "Public", public_todo_lists_path %></li>
-      </ul>
-
-      <div id="new_todo_list">
-        <%= link_to "New todo list", new_todo_list_path %>
-      </div>
-    </div>
+    <%= render :partial => "shared/menu" %>
 
     <%= flash_messages %>
 
@@ -36,6 +26,7 @@
     </div>
 
     <div id="footer"><%= AppConfig.name %> &copy; 2011</div>
+
   </div>
 
 </body>

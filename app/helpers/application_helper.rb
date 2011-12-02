@@ -19,4 +19,14 @@ module ApplicationHelper
     content_for(:title) { t }
   end
 
+  def link_to_menu(*args, &block)
+    url       = args[1]
+    mapping   = Rails.application.routes.recognize_path(url)
+    css_class = "current" if mapping[:controller] == controller.controller_path
+
+    content_tag :li, :class => css_class do
+      link_to *args, &block
+    end
+  end
+
 end
