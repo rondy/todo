@@ -20,9 +20,7 @@
       <% end %>
     </div>
 
-    <% flash.collect do |key, message| %>
-      <%= content_tag :div, message, :id => "flash_#{key}", :class => "flash_message" %>
-    <% end.join.html_safe %>
+    <%= flash_messages %>
 
     <%= yield %>
   </div>
