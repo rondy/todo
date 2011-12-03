@@ -25,6 +25,7 @@ end
 group :development do
   gem "wirble"
   gem "hirb"
+  gem "faker"
 end
 
 group :test do
