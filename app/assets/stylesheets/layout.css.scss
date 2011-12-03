@@ -16,12 +16,17 @@ div#header {
     font-size: .65em;
     text-align: right;
     width: 70%;
+
+    img {
+      vertical-align: middle;
+    }
   }
 
 }
 
 div#menu {
 
+  font-family: Helvetica,Arial,sans-serif;
   border-width: 1px 0;
   margin-top: .5em;
 
@@ -61,7 +66,6 @@ div#menu {
 
     a {
       color: #FFF;
-      font-family: Helvetica,Arial,sans-serif;
       font-size: .75em;
       font-weight: bold;
       text-decoration: none;
