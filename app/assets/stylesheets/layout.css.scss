@@ -22,8 +22,8 @@ div#header {
 
 div#menu {
 
-  background-color: #DDD;
   border-width: 1px 0;
+  margin-top: .5em;
 
   ul li {
     display: left;
@@ -37,6 +37,7 @@ div#menu {
       float: left;
       padding: 10px 14px;
       text-transform: uppercase;
+      text-decoration: none;
     }
   }
 
@@ -44,6 +45,13 @@ div#menu {
 
     a {
       color: #000;
+      background-color: #FFF;
+      -webkit-border-top-left-radius: 8px;
+      -webkit-border-top-right-radius: 8px;
+      -moz-border-radius-topleft: 8px;
+      -moz-border-radius-topright: 8px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
     }
 
   }
