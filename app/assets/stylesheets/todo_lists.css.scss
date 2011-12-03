@@ -62,6 +62,12 @@ form {
     display: inline;
   }
 
+  span.error {
+    display: block;
+    color: red;
+    font-size: .7em;
+  }
+
   input#todo_list_name {
     font-size: 1.6em;
     font-weight: bold;
