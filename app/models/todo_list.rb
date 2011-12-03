@@ -11,7 +11,7 @@ class TodoList < ActiveRecord::Base
   accepts_nested_attributes_for :tasks, :reject_if => lambda { |task| task["name"].blank? }, :allow_destroy  => true
 
   scope :public_visibility, where(:private => false)
-  scope :except_from_user, lambda { |user| where("user_id <> ?", user) }
+  scope :except_for_user, lambda { |user| where("user_id <> ?", user) }
 
   NUMBER_OF_TASK_FIELDS = 4
 
