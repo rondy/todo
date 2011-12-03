@@ -1,7 +1,7 @@
 module TodoListsHelper
 
   def visibility(todo_list)
-    content_tag :em, "(private)" if todo_list.private?
+    todo_list.public? ? "public" : "private"
   end
 
   def setup_task_fields(todo_list)

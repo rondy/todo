@@ -11,19 +11,19 @@ describe TodoListsHelper do
 
     subject { helper.visibility(todo_list) }
 
-    context "when todo list is private" do
+    context "when todo list is public" do
 
-      before { todo_list.stub(:private? => true) }
+      before { todo_list.stub(:public? => true) }
 
-      it { should eq "<em>(private)</em>" }
+      it { should eq "public" }
 
     end
 
-    context "when todo_list is not private" do
+    context "when todo_list is not public" do
 
-      before { todo_list.stub(:private? => false) }
+      before { todo_list.stub(:public? => false) }
 
-      it { should be_nil }
+      it { should eq "private" }
 
     end
 

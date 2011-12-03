@@ -1,8 +1,11 @@
 div.todo_list {
 
-  margin-bottom: 1em;
   padding: 0 2.5em 2.5em;
+  padding-top: 1em;
   border-bottom: 1px solid #DDD;
+
+  &.public  { background:         url("public.png")   no-repeat 98% 15px; }
+  &.private { background: #fcfdf1 url("private.png")  no-repeat 98% 15px; }
 
   div.avatar {
     float:left;

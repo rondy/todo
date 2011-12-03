@@ -1,20 +1,16 @@
-<div id="<%= dom_id(todo_list) %>" class="todo_list">
-  <div class="header">
-    <div class="visibility">
-      <%= visibility(todo_list) %>
+<div id="<%= dom_id(todo_list) %>" class="todo_list <%= visibility(todo_list) %>">
+  <div class="header clearfix">
+    <div class="avatar">
+      <%= image_tag todo_list.user.avatar_url %>
     </div>
 
-    <div class="clearfix">
-      <div class="avatar">
-        <%= image_tag todo_list.user.avatar_url %>
-      </div>
-
-      <div class="info">
-        <h3><%= todo_list.name %></h3>
-        <div class="actions">
-          <span class="timestamp"><%= time_ago_in_words(todo_list.created_at) %></span>
-          <%= render_action_links_for(todo_list) %>
-        </div>
+    <div class="info">
+      <h3><%= todo_list.name %></h3>
+      <div class="actions">
+        <span class="timestamp">
+          <%= time_ago_in_words(todo_list.created_at) %>
+        </span>
+        <%= render_action_links_for(todo_list) %>
       </div>
     </div>
   </div>
