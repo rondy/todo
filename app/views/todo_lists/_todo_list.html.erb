@@ -1,7 +1,7 @@
 <div id="<%= dom_id(todo_list) %>" class="todo_list <%= visibility(todo_list) %>">
   <div class="header clearfix">
     <div class="avatar">
-      <%= image_tag todo_list.user.avatar_url %>
+      <%= image_tag todo_list.user.avatar_url, :alt => current_user, :title => current_user %>
     </div>
 
     <div class="info">
