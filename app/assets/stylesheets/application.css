@@ -7,4 +7,5 @@
  *= require layout
  *= require flash_messages
  *= require todo_lists
+ *= require login
 */

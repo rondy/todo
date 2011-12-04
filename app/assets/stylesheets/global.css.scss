@@ -29,6 +29,59 @@ a {
   color: #33825f;
 }
 
+form {
+
+  padding: 0 2.5em 2.5em;
+
+  label abbr {
+    color: red;
+  }
+
+  label {
+    display: block;
+  }
+
+  div.input.boolean label {
+    display: inline;
+  }
+
+  span.error {
+    display: block;
+    color: red;
+    font-size: .7em;
+  }
+
+  span.hint {
+    color: #AAA;
+    font-size: .7em;
+    display: block;
+    line-height: .7em;
+    margin-bottom: 1em;
+  }
+
+  div.submit {
+    border-top: 1px solid #DDD;
+    margin-top: 1em;
+    padding-top: 1em;
+  }
+
+  input.button {
+    font-size: 1em;
+  }
+
+}
+
+div#cancel_account {
+  padding: 0 2.5em;
+}
+
+div#footer {
+  color: #AAA;
+  text-align: center;
+  font-size: .65em;
+  margin-top:1em;
+}
+
 .clearfix {
   overflow: hidden;
 }

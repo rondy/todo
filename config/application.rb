@@ -52,5 +52,11 @@ module Todo
     config.assets.version = '1.0'
 
     config.assets.paths << Rails.root.join("lib", "assets")
+
+    config.to_prepare {
+      Devise::RegistrationsController.layout proc { |controller| user_signed_in? ? "application" : "devise" }
+      Devise::SessionsController.layout "devise"
+      Devise::PasswordsController.layout "devise"
+    }
   end
 end

@@ -51,36 +51,6 @@ div.todo_list {
 
 form {
 
-  padding: 0 2.5em 2.5em;
-
-  label abbr {
-    color: red;
-  }
-
-  label {
-    display: block;
-  }
-
-  div.input.boolean label {
-    display: inline;
-  }
-
-  span.error {
-    display: block;
-    color: red;
-    font-size: .7em;
-  }
-
-  input#todo_list_name {
-    font-size: 1.6em;
-    font-weight: bold;
-    width: 15em;
-  }
-
-  input.button {
-    font-size: 1em;
-  }
-
   div#tasks {
 
     border-bottom: 1px solid #DDD;
@@ -101,7 +71,5 @@ form {
     }
 
   }
-
-  
 
 }

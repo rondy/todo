@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%= title_tag %>
+  <%= stylesheet_link_tag    "devise" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+
+  <div id="login">
+
+    <%= flash_messages %>
+
+    <div id="header" class="clearfix">
+      <div id="app_name"><%= AppConfig.name %></div>
+    </div>
+
+    <%= yield %>
+
+    <div id="footer"><%= AppConfig.name %> &copy; 2011</div>
+
+  </div>
+
+</body>
+
+</html>
