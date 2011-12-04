@@ -18,7 +18,7 @@ feature "User todo lists" do
     fill_in "Name", :with => ""
     click_button "Create Todo list"
     all("div#tasks > div.task_field input[type=text]").should have(TodoList::NUMBER_OF_TASK_FIELDS).items
-    fill_in(find("div#tasks > div.task_field:nth-child(1) input")[:id], :with => "Can't find a good name to my todo list")
+    fill_in(find(:task_field, 1)[:id], :with => "Can't find a good name to my todo list")
     click_button "Create Todo list"
     all("div#tasks > div.task_field input[type=text]").should have(TodoList::NUMBER_OF_TASK_FIELDS).items
   end
@@ -26,7 +26,7 @@ feature "User todo lists" do
   scenario "can create a todo list with valid attributes" do
     visit new_todo_list_path
     fill_in "Name", :with => "Christmas wish list"
-    fill_in(find("div#tasks > div.task_field:nth-child(1) input")[:id], :with => "Kindle")
+    fill_in(find(:task_field, 1)[:id], :with => "Kindle")
     click_button "Create Todo list"
     current_path.should eq todo_lists_path
     within(".flash_message")  { page.should have_content "Todo list was successfully created." }
@@ -38,22 +38,24 @@ feature "User todo lists" do
     visit new_todo_list_path
     fill_in "Name", :with => "Things to learn"
     all("div#tasks > div.task_field").should have(4).items
-    fill_in(find("div#tasks > div.task_field:nth-child(1) input")[:id], :with => "Node.js")
-    fill_in(find("div#tasks > div.task_field:nth-child(2) input")[:id], :with => "EventMachine")
-    fill_in(find("div#tasks > div.task_field:nth-child(3) input")[:id], :with => "SVG")
-    fill_in(find("div#tasks > div.task_field:nth-child(4) input")[:id], :with => "NoSQL")
+    fill_in(find(:task_field, 1)[:id], :with => "Node.js")
+    fill_in(find(:task_field, 2)[:id], :with => "EventMachine")
+    fill_in(find(:task_field, 3)[:id], :with => "SVG")
+    fill_in(find(:task_field, 4)[:id], :with => "NoSQL")
     click_link "Add task"
     all("div#tasks > div.task_field").should have(5).items
-    fill_in(find("div#tasks > div.task_field:nth-child(5) input")[:id], :with => "Titanium Mobile")
+    fill_in(find(:task_field, 5)[:id], :with => "Titanium Mobile")
     click_button "Create Todo list"
     current_path.should eq todo_lists_path
     within(".flash_message") { page.should have_content "Todo list was successfully created." }
     within("div#todo_lists") { page.should have_content "Things to learn" }
-    within("ul.tasks") { page.should have_content "Node.js" }
-    within("ul.tasks") { page.should have_content "EventMachine" }
-    within("ul.tasks") { page.should have_content "SVG" }
-    within("ul.tasks") { page.should have_content "NoSQL" }
-    within("ul.tasks") { page.should have_content "Titanium Mobile" }
+    within("ul.tasks") do
+      page.should have_content "Node.js"
+      page.should have_content "EventMachine"
+      page.should have_content "SVG"
+      page.should have_content "NoSQL"
+      page.should have_content "Titanium Mobile"
+    end
   end
 
   scenario "cannot create a todo list without name" do
@@ -69,13 +71,15 @@ feature "User todo lists" do
     visit edit_todo_list_path(todo_list)
     all("div#tasks > div.task_field").should have(2).items
     fill_in "Name", :with => "Things I MUST to learn"
-    fill_in(find("div#tasks > div.task_field:nth-child(1) input")[:id], :with => "Backbone.js")
+    fill_in(find(:task_field, 1)[:id], :with => "Backbone.js")
     click_button "Update Todo list"
     current_path.should eq todo_lists_path
     within(".flash_message") { page.should have_content "Todo list was successfully updated." }
     within("div#todo_lists") { page.should have_content "Things I MUST to learn" }
-    within("ul.tasks") { page.should have_content "Backbone.js" }
-    within("ul.tasks") { page.should have_content "SproutCore" }
+    within("ul.tasks") do
+      page.should have_content "Backbone.js"
+      page.should have_content "SproutCore"
+    end
   end
 
   scenario "can remove items from a todo list", :js => true do
@@ -85,8 +89,10 @@ feature "User todo lists" do
     find("div#tasks > div.task_field:nth-child(2) a.remove_child").click
     click_button "Update Todo list"
     all("ul.tasks").should have(1).item
-    within("ul.tasks") { page.should have_content "Cool item" }
-    within("ul.tasks") { page.should_not have_content "Not so cool" }
+    within("ul.tasks") do
+      page.should have_content "Cool item"
+      page.should_not have_content "Not so cool"
+    end
   end
 
   scenario "can remove a todo list", :js => true do
