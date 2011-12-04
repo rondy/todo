@@ -1,5 +1,11 @@
 <% title "Public todo lists", :show => false %>
 
 <div id="todo_lists">
-  <%= render :partial => "todo_list", :collection => @public_todo_lists %>
+  <% unless @public_todo_lists.empty? %>
+    <%= render :partial => "todo_list", :collection => @public_todo_lists %>
+  <% else %>
+    <p class="empty">
+      No public lists were created.
+    </p>
+  <% end %>
 </div>

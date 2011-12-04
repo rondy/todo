@@ -51,6 +51,14 @@ div.todo_list {
 
 form {
 
+  div.input {
+    input#todo_list_name {
+      font-size: 1.6em;
+      font-weight: bold;
+      width: 18em;
+    }
+  }
+
   div#tasks {
 
     border-bottom: 1px solid #DDD;

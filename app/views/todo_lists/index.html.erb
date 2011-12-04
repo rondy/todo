@@ -1,5 +1,11 @@
 <% title "My todo lists", :show => false %>
 
 <div id="todo_lists">
-  <%= render @todo_lists %>
+  <% unless @todo_lists.empty? %>
+    <%= render @todo_lists %>
+  <% else %>
+    <p class="empty">
+      You haven't created any lists yet. Why don't you go ahead and <%= link_to "create a new one", new_todo_list_path %>?
+    </p>
+  <% end %>
 </div>

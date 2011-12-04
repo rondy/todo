@@ -1,5 +1,11 @@
 <% title "Watched lists", :show => false %>
 
 <div id="todo_lists">
-  <%= render :partial => "todo_list", :collection => @watched_lists %>
+  <% unless @watched_lists.empty? %>
+    <%= render :partial => "todo_list", :collection => @watched_lists %>
+  <% else %>
+    <p class="empty">
+      You aren't watching any public list. Let's <%= link_to "find some", public_todo_lists_path %> for you!
+    </p>
+  <% end %>
 </div>
