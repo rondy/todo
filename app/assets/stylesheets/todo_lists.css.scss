@@ -64,6 +64,10 @@ form {
     border-bottom: 1px solid #DDD;
     padding-bottom: 1em;
     margin: 1em 0;
+    
+    input {
+      margin-right: .5em;
+    }
 
     a.add_child {
       background: url("add.png") no-repeat;

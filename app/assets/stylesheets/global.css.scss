@@ -41,6 +41,11 @@ form {
     display: block;
   }
 
+  div.input.string input,
+  div.input.password input {
+    width: 25em;
+  }
+
   div.input.boolean label {
     display: inline;
   }
