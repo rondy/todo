@@ -1,4 +1,0 @@
-<tt>
-rew install -f imagemagick --disable-openmp
-rake db:populate
-</tt>
