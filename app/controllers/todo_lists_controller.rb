@@ -3,7 +3,7 @@ class TodoListsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @todo_lists = current_user.todo_lists.includes(:tasks, :user)
+    @todo_lists = current_user.todo_lists.includes(:tasks, :user).page(params[:page])
     respond_with(@todo_lists)
   end
 

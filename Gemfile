@@ -10,6 +10,7 @@ gem "carrierwave"
 gem "rmagick"
 gem "simple_form"
 gem "responders"
+gem "kaminari"
 
 group :assets do
   gem 'sass-rails', '~> 3.1.5.rc.2'

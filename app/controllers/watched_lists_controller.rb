@@ -1,7 +1,7 @@
 class WatchedListsController < PublicTodoListsController
 
   def index
-    @watched_lists = current_user.watched_lists.includes(:tasks, :user, :watchers)
+    @watched_lists = current_user.watched_lists.includes(:tasks, :user, :watchers).page(params[:page])
     respond_with(@watched_lists)
   end
 

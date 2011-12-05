@@ -4,7 +4,8 @@ class PublicTodoListsController < TodoListsController
     @public_todo_lists = TodoList.
                           public_visibility.
                           except_for_user(current_user).
-                          includes(:tasks, :user, :watchers)
+                          includes(:tasks, :user, :watchers).
+                          page(params[:page])
 
     respond_with(@public_todo_lists)
   end

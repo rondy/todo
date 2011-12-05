@@ -7,6 +7,8 @@ class TodoList < ActiveRecord::Base
 
   default_scope order("created_at DESC")
 
+  paginates_per 5
+
   validates :name, :presence => true
   accepts_nested_attributes_for :tasks, :reject_if => lambda { |task| task["name"].blank? }, :allow_destroy  => true
 
