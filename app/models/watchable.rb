@@ -21,7 +21,7 @@ module Watchable
   end
 
   def watching?(todo_list)
-    !!watchings.find_by_watched_list_id(todo_list)
+    !!todo_list.watchers.include?(self)
   end
 
 end
