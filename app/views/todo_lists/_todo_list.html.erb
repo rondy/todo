@@ -5,7 +5,9 @@
     </div>
 
     <div class="info">
-      <h3><%= todo_list.name %></h3>
+      <h3 title="<%= todo_list.name %>">
+        <%= truncate(todo_list.name, :length => 50) %>
+      </h3>
       <div class="actions">
         <span class="timestamp">
           <%= time_ago_in_words(todo_list.created_at) %>
