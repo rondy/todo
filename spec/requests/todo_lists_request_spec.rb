@@ -12,15 +12,15 @@ feature "User todo lists" do
     page.should_not have_content todo_list_2.name
   end
 
-  scenario "show at least #{TodoList::NUMBER_OF_TASK_FIELDS} text fields for tasks when creating a todo list" do
+  scenario "show at least #{TodoList::NUMBER_OF_EMPTY_TASK_FIELDS} text fields for tasks when creating a todo list" do
     visit new_todo_list_path
-    all("div#tasks > div.task_field input[type=text]").should have(TodoList::NUMBER_OF_TASK_FIELDS).items
+    all("div#tasks > div.task_field input[type=text]").should have(TodoList::NUMBER_OF_EMPTY_TASK_FIELDS).items
     fill_in "Name", :with => ""
     click_button "Create Todo list"
-    all("div#tasks > div.task_field input[type=text]").should have(TodoList::NUMBER_OF_TASK_FIELDS).items
+    all("div#tasks > div.task_field input[type=text]").should have(TodoList::NUMBER_OF_EMPTY_TASK_FIELDS).items
     fill_in(find(:task_field, 1)[:id], :with => "Can't find a good name to my todo list")
     click_button "Create Todo list"
-    all("div#tasks > div.task_field input[type=text]").should have(TodoList::NUMBER_OF_TASK_FIELDS).items
+    all("div#tasks > div.task_field input[type=text]").should have(TodoList::NUMBER_OF_EMPTY_TASK_FIELDS).items
   end
 
   scenario "can create a todo list with valid attributes" do
